@@ -1,0 +1,8 @@
+# Keep exported validation artifacts byte-for-byte and out of text diffs.
+validation/*.obj -text -diff
+validation/*.glb -text -diff
+validation/*.stl -text -diff
+validation/*.ply -text -diff
+validation/** linguist-generated=true
+frontend/openapi.json linguist-generated=true
+frontend/src/schema.d.ts linguist-generated=true

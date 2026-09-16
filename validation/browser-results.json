@@ -1,0 +1,279 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\think\\Documents\\Codex\\2026-09-16\\https-github-com-dhairyajangir-automesh-ai\\outputs\\AutoMesh-AI\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--timeout",
+      "240000"
+    ],
+    "configFile": "C:\\Users\\think\\Documents\\Codex\\2026-09-16\\https-github-com-dhairyajangir-automesh-ai\\outputs\\AutoMesh-AI\\frontend\\playwright.config.ts",
+    "rootDir": "C:/Users/think/Documents/Codex/2026-09-16/https-github-com-dhairyajangir-automesh-ai/outputs/AutoMesh-AI/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/think/Documents/Codex/2026-09-16/https-github-com-dhairyajangir-automesh-ai/outputs/AutoMesh-AI/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/think/Documents/Codex/2026-09-16/https-github-com-dhairyajangir-automesh-ai/outputs/AutoMesh-AI/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 240000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "performance.spec.ts",
+      "file": "performance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "measure visible viewer orbit cadence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11957,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "VIEWER_BENCHMARK {\"renderer\":\"ANGLE (Intel, Intel(R) Iris(R) Plus Graphics (0x00008A52) Direct3D11 vs_5_0 ps_5_0, D3D11)\",\"frames\":120,\"elapsed_ms\":2816.699999988079,\"orbit_updates_per_second\":42.603046117977726,\"viewport\":{\"width\":1440,\"height\":1000},\"pixel_ratio\":1}\n"
+                    }
+                  ],
+                  "stderr": [
+                    {
+                      "text": "(node:12944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+                    }
+                  ],
+                  "retry": 0,
+                  "startTime": "2026-09-16T08:14:21.665Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "viewer-performance",
+                      "contentType": "application/json",
+                      "body": "ewogICJyZW5kZXJlciI6ICJBTkdMRSAoSW50ZWwsIEludGVsKFIpIElyaXMoUikgUGx1cyBHcmFwaGljcyAoMHgwMDAwOEE1MikgRGlyZWN0M0QxMSB2c181XzAgcHNfNV8wLCBEM0QxMSkiLAogICJmcmFtZXMiOiAxMjAsCiAgImVsYXBzZWRfbXMiOiAyODE2LjY5OTk5OTk4ODA3OSwKICAib3JiaXRfdXBkYXRlc19wZXJfc2Vjb25kIjogNDIuNjAzMDQ2MTE3OTc3NzI2LAogICJ2aWV3cG9ydCI6IHsKICAgICJ3aWR0aCI6IDE0NDAsCiAgICAiaGVpZ2h0IjogMTAwMAogIH0sCiAgInBpeGVsX3JhdGlvIjogMQp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b15d6361b2fc38288977-6eafc978fccf2cc26466",
+          "file": "performance.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "studio.spec.ts",
+      "file": "studio.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "example opens with real geometry, projection checks and downloads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9466,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T08:14:36.802Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-e51d151472a5833acefb",
+          "file": "studio.spec.ts",
+          "line": 12,
+          "column": 1
+        },
+        {
+          "title": "new project, upload, mask editing, orientation and rebuild",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28243,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T08:14:46.411Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-d9a69b4977e52061b26c",
+          "file": "studio.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "small screen, zoom and keyboard access",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5841,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T08:15:14.799Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-f8ef76caa803e6e731d8",
+          "file": "studio.spec.ts",
+          "line": 92,
+          "column": 1
+        },
+        {
+          "title": "accessibility checks on build screen and new project dialog",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11624,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T08:15:20.713Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "64bdea7002f9c9cea9f4-f07513bc164bb7b70e03",
+          "file": "studio.spec.ts",
+          "line": 111,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-16T08:14:15.851Z",
+    "duration": 77664.444,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

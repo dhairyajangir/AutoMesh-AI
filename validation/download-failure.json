@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "error": "Photo model could not load. Check your internet connection for the first download, or use Paint mask.",
+  "method": "Real photo_mask with empty model cache and blocked requests"
+}

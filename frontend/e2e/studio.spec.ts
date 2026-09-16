@@ -1,0 +1,121 @@
+import {test,expect} from '@playwright/test'
+import AxeBuilder from '@axe-core/playwright'
+import type {Page} from '@playwright/test'
+
+async function openExample(page:Page){
+  const projects=await (await page.request.get('/api/projects')).json()
+  const example=projects.find((p:any)=>p.name==='Touring coupe · example')
+  await page.goto('/?project='+example.id)
+  await expect(page.getByRole('textbox',{name:'Project name',exact:true})).toHaveValue(example.name,{timeout:45000})
+}
+
+test('example opens with real geometry, projection checks and downloads',async({page})=>{
+  const errors:string[]=[]
+  page.on('pageerror',e=>errors.push(e.message))
+  await openExample(page)
+  await expect(page.getByRole('heading',{name:'A shape you can inspect'})).toBeVisible()
+  await expect(page.getByTestId('model-viewer')).toBeVisible({timeout:45000})
+  await expect(page.getByText('Watertight',{exact:true})).toBeVisible()
+  await page.getByRole('button',{name:'Wireframe',exact:true}).click()
+  await page.getByRole('button',{name:'Solid',exact:true}).click()
+  await page.getByRole('button',{name:'Compare projections'}).click()
+  await expect(page.getByText('Computed silhouette projections')).toBeVisible()
+  await page.getByRole('button',{name:'Close projection comparison'}).click()
+  await page.getByRole('button',{name:'Export model',exact:true}).click()
+  const downloadEvent=page.waitForEvent('download')
+  await page.getByRole('link',{name:'GLB Compact 3D scene'}).click()
+  const download=await downloadEvent
+  expect(download.suggestedFilename()).toBe('vehicle.glb')
+  expect(await download.failure()).toBeNull()
+  expect(errors).toEqual([])
+})
+
+test('new project, upload, mask editing, orientation and rebuild',async({page,request})=>{
+  await openExample(page)
+  await page.getByRole('button',{name:'New project'}).click()
+  const fixtureName='Browser workflow '+Date.now()
+  await page.getByRole('textbox',{name:'Project name',exact:true}).last().fill(fixtureName)
+  await page.getByRole('button',{name:'Create project',exact:true}).click()
+  await expect(page.getByRole('heading',{name:'Bring your views together'})).toBeVisible()
+  const projects=await (await request.get('/api/projects')).json()
+  const current=projects.find((p:any)=>p.name===fixtureName)
+  await expect(page).toHaveURL(new RegExp(current.id))
+  const demo=projects.find((p:any)=>p.name==='Touring coupe · example')
+  for(const name of ['side','front','top']){
+    const source=demo.views.find((v:any)=>v.name===name)
+    const image=await (await request.get('/api/artifacts/'+source.source_id)).body()
+    if(name==='side'){
+      await page.locator('input[type=file]').setInputFiles({name:'vehicle.png',mimeType:'image/png',buffer:image})
+      await expect(page.getByRole('button',{name:'Replace selected image',exact:true})).toBeVisible({timeout:45000})
+    }else{
+      const upload=await request.post(`/api/projects/${current.id}/views/${name}`,{multipart:{file:{name:'vehicle.png',mimeType:'image/png',buffer:image}}})
+      expect(upload.ok()).toBeTruthy()
+    }
+    const mask=await (await request.get('/api/artifacts/'+source.mask_id)).body()
+    const settings={...source.settings,orientation_confirmed:true}
+    await request.put(`/api/projects/${current.id}/views/${name}`,{data:settings})
+    const project=await (await request.get('/api/projects/'+current.id)).json()
+    const view=project.views.find((v:any)=>v.name===name)
+    await request.put(`/api/projects/${current.id}/views/${name}/mask?revision=${view.revision}`,{multipart:{file:{name:'mask.png',mimeType:'image/png',buffer:mask}}})
+  }
+  await page.goto('/?project='+current.id)
+  await page.getByRole('button',{name:'2 Masks',exact:true}).click()
+  const canvas=page.getByLabel(/Mask drawing canvas/)
+  await expect(canvas).toBeVisible({timeout:45000})
+  await page.getByRole('button',{name:'Polygon',exact:true}).click()
+  await page.locator('#point-x').fill('45');await page.locator('#point-y').fill('45')
+  await page.getByRole('button',{name:'Add point',exact:true}).click()
+  await page.locator('#point-x').fill('55');await page.getByRole('button',{name:'Add point',exact:true}).click()
+  await page.locator('#point-y').fill('55');await page.getByRole('button',{name:'Add point',exact:true}).click()
+  await page.getByRole('button',{name:'Fill polygon',exact:true}).click()
+  await expect(page.getByRole('button',{name:'Undo mask edit'})).toBeEnabled({timeout:45000})
+  await page.getByRole('button',{name:'Undo mask edit'}).click()
+  const autosave=page.waitForResponse(r=>r.url().includes(`/views/side/mask?`)&&r.request().method()==='PUT'&&r.status()===200,{timeout:45000})
+  await page.getByRole('button',{name:'Redo mask edit'}).click()
+  await autosave
+  await expect(page.getByRole('button',{name:'Save mask',exact:true})).toBeDisabled({timeout:45000})
+  await expect(page.getByRole('button',{name:'Undo mask edit'})).toBeEnabled()
+  await page.getByRole('button',{name:'3 Align',exact:true}).click()
+  await expect(page.getByLabel('Orientation reviewed')).toBeChecked()
+  await page.getByLabel('Horizontal offset',{exact:true}).fill('0.01')
+  await expect(page.getByText('Saved locally',{exact:true})).toBeVisible()
+  await page.getByRole('button',{name:'4 Build',exact:true}).click()
+  await page.getByRole('button',{name:'Preview Fast shape check 128'}).click()
+  await expect(page.getByRole('button',{name:'Build mesh',exact:true}).first()).toBeEnabled()
+  await page.getByRole('button',{name:'Build mesh',exact:true}).first().click()
+  await expect(page.getByTestId('model-viewer')).toBeVisible({timeout:45000})
+  await page.reload()
+  await expect(page.getByRole('textbox',{name:'Project name',exact:true})).toHaveValue(fixtureName,{timeout:45000})
+  await expect(page.getByTestId('model-viewer')).toBeVisible({timeout:45000})
+})
+
+test('small screen, zoom and keyboard access',async({page})=>{
+  await page.setViewportSize({width:375,height:812})
+  await openExample(page)
+  await expect(page.getByRole('heading',{name:'A shape you can inspect'})).toBeVisible()
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy()
+  await page.getByRole('button',{name:'Tools',exact:true}).click()
+  await expect(page.getByRole('heading',{name:'Mesh resolution'})).toBeVisible()
+  await page.getByRole('button',{name:'Tools',exact:true}).click()
+  await page.getByRole('button',{name:'Sources',exact:true}).click()
+  await expect(page.getByRole('heading',{name:'Source views',exact:true})).toBeVisible()
+  await page.getByRole('button',{name:'Sources',exact:true}).click()
+  await page.emulateMedia({reducedMotion:'reduce'})
+  await page.keyboard.press('Tab')
+  expect(await page.locator(':focus').count()).toBe(1)
+  await page.setViewportSize({width:1280,height:900})
+  await page.evaluate(()=>{document.documentElement.style.zoom='2'})
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBeTruthy()
+})
+
+test('accessibility checks on build screen and new project dialog',async({page})=>{
+  test.setTimeout(240000)
+  await openExample(page)
+  await expect(page.getByRole('heading',{name:'A shape you can inspect'})).toBeVisible()
+  await expect(page.getByRole('combobox',{name:'Open saved project'})).not.toHaveText('Choose project',{timeout:45000})
+  const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()
+  expect(result.violations).toEqual([])
+  await page.getByRole('button',{name:'New project'}).click()
+  const dialog=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()
+  expect(dialog.violations).toEqual([])
+})

@@ -1,0 +1,11 @@
+{
+  "renderer": "ANGLE (Intel, Intel(R) Iris(R) Plus Graphics (0x00008A52) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "frames": 120,
+  "elapsed_ms": 2816.699999988079,
+  "orbit_updates_per_second": 42.603046117977726,
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "pixel_ratio": 1
+}
