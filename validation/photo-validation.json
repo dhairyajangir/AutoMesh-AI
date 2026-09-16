@@ -1,0 +1,80 @@
+{
+  "offline_network_blocked": true,
+  "segmentation_seconds": {
+    "side": 30.746981200005393,
+    "front": 4.752460699994117
+  },
+  "reconstruction_seconds": 7.314667700004065,
+  "stats": {
+    "vertices": 46774,
+    "faces": 93576,
+    "watertight": true,
+    "winding_consistent": true,
+    "components": 1,
+    "dimensions": {
+      "length": 2.1875940561294556,
+      "height": 1.0000000000321145,
+      "width": 1.3057255744934082
+    },
+    "bounds": [
+      [
+        -1.0851844549179077,
+        -3.2114571418828675e-11,
+        -0.6614530682563782
+      ],
+      [
+        1.1024096012115479,
+        1.0,
+        0.64427250623703
+      ]
+    ],
+    "volume": 1.4311189823678916,
+    "unit": "relative",
+    "grid": [
+      128,
+      58,
+      77
+    ],
+    "resolution": 128,
+    "source_views": [
+      "front",
+      "side"
+    ],
+    "projection_iou": {
+      "side": 1.0,
+      "front": 1.0
+    },
+    "warnings": [
+      "Front photograph is oblique. This capture-mismatch example is not a dimensional reference.",
+      "Silhouettes constrain the exterior only; hidden recesses and internal geometry are unknown.",
+      "Top profile unconstrained; width may be overestimated.",
+      "Relative scale. Set one known dimension before using physical measurements."
+    ],
+    "method": "orthographic_visual_hull",
+    "axes": "X forward, Y up, Z vehicle right",
+    "physical_accuracy": "Not measured; silhouette agreement is not geometric accuracy."
+  },
+  "export_checks": {
+    "glb": {
+      "bytes": 1685004,
+      "watertight": true,
+      "bounds_match": true
+    },
+    "stl": {
+      "bytes": 4678884,
+      "watertight": true,
+      "bounds_match": true
+    },
+    "obj": {
+      "bytes": 3486421,
+      "watertight": true,
+      "bounds_match": true
+    },
+    "ply": {
+      "bytes": 1777995,
+      "watertight": true,
+      "bounds_match": true
+    }
+  },
+  "attribution": "Manuel Strehl, 2005, CC BY-SA 2.5; see data/examples/photos/ATTRIBUTION.md"
+}

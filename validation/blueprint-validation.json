@@ -1,0 +1,218 @@
+[
+  {
+    "resolution": 128,
+    "geometry_seconds": 2.5224248000013176,
+    "with_exports_and_reimport_seconds": 7.581859400001122,
+    "stats": {
+      "vertices": 22594,
+      "faces": 45184,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "dimensions": {
+        "length": 3.1789772510528564,
+        "height": 0.9736841916057625,
+        "width": 1.4545692205429077
+      },
+      "bounds": [
+        [
+          -1.5894887447357178,
+          9.803395595309183e-11,
+          -0.7272846698760986
+        ],
+        [
+          1.5894885063171387,
+          0.9736841917037964,
+          0.7272845506668091
+        ]
+      ],
+      "volume": 2.984350211798549,
+      "unit": "relative",
+      "grid": [
+        128,
+        38,
+        57
+      ],
+      "resolution": 128,
+      "source_views": [
+        "front",
+        "side",
+        "top"
+      ],
+      "projection_iou": {
+        "side": 0.9765,
+        "front": 0.9844,
+        "top": 0.9984
+      },
+      "warnings": [
+        "Silhouettes constrain the exterior only; hidden recesses and internal geometry are unknown.",
+        "Relative scale. Set one known dimension before using physical measurements."
+      ],
+      "method": "orthographic_visual_hull",
+      "axes": "X forward, Y up, Z vehicle right",
+      "physical_accuracy": "Not measured; silhouette agreement is not geometric accuracy."
+    },
+    "exports": {
+      "glb": {
+        "bytes": 814152,
+        "watertight_after_import": true
+      },
+      "stl": {
+        "bytes": 2259284,
+        "watertight_after_import": true
+      },
+      "obj": {
+        "bytes": 1650879,
+        "watertight_after_import": true
+      },
+      "ply": {
+        "bytes": 858739,
+        "watertight_after_import": true
+      }
+    }
+  },
+  {
+    "resolution": 256,
+    "geometry_seconds": 8.349245400022482,
+    "with_exports_and_reimport_seconds": 49.98897910001688,
+    "stats": {
+      "vertices": 100096,
+      "faces": 200188,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "dimensions": {
+        "length": 3.1789774894714355,
+        "height": 0.9999999998385708,
+        "width": 1.4942392706871033
+      },
+      "bounds": [
+        [
+          -1.5894887447357178,
+          1.6142924497142275e-10,
+          -0.7405080199241638
+        ],
+        [
+          1.5894887447357178,
+          1.0,
+          0.7537312507629395
+        ]
+      ],
+      "volume": 3.017540263997306,
+      "unit": "relative",
+      "grid": [
+        256,
+        75,
+        114
+      ],
+      "resolution": 256,
+      "source_views": [
+        "front",
+        "side",
+        "top"
+      ],
+      "projection_iou": {
+        "side": 0.9792,
+        "front": 1.0,
+        "top": 0.9996
+      },
+      "warnings": [
+        "Silhouettes constrain the exterior only; hidden recesses and internal geometry are unknown.",
+        "Relative scale. Set one known dimension before using physical measurements."
+      ],
+      "method": "orthographic_visual_hull",
+      "axes": "X forward, Y up, Z vehicle right",
+      "physical_accuracy": "Not measured; silhouette agreement is not geometric accuracy."
+    },
+    "exports": {
+      "glb": {
+        "bytes": 3604216,
+        "watertight_after_import": true
+      },
+      "stl": {
+        "bytes": 10009484,
+        "watertight_after_import": true
+      },
+      "obj": {
+        "bytes": 7544007,
+        "watertight_after_import": true
+      },
+      "ply": {
+        "bytes": 3803817,
+        "watertight_after_import": true
+      }
+    }
+  },
+  {
+    "resolution": 384,
+    "geometry_seconds": 18.86657670000568,
+    "with_exports_and_reimport_seconds": 207.00925269999425,
+    "stats": {
+      "vertices": 226474,
+      "faces": 452944,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "dimensions": {
+        "length": 3.1878076791763306,
+        "height": 1.0000000000164835,
+        "width": 1.498647153377533
+      },
+      "bounds": [
+        [
+          -1.598319172859192,
+          -1.6483585330018258e-11,
+          -0.744915783405304
+        ],
+        [
+          1.5894885063171387,
+          1.0,
+          0.753731369972229
+        ]
+      ],
+      "volume": 3.02579299086305,
+      "unit": "relative",
+      "grid": [
+        384,
+        113,
+        171
+      ],
+      "resolution": 384,
+      "source_views": [
+        "front",
+        "side",
+        "top"
+      ],
+      "projection_iou": {
+        "side": 0.9785,
+        "front": 1.0,
+        "top": 0.9997
+      },
+      "warnings": [
+        "Silhouettes constrain the exterior only; hidden recesses and internal geometry are unknown.",
+        "Relative scale. Set one known dimension before using physical measurements."
+      ],
+      "method": "orthographic_visual_hull",
+      "axes": "X forward, Y up, Z vehicle right",
+      "physical_accuracy": "Not measured; silhouette agreement is not geometric accuracy."
+    },
+    "exports": {
+      "glb": {
+        "bytes": 8153820,
+        "watertight_after_import": true
+      },
+      "stl": {
+        "bytes": 22647284,
+        "watertight_after_import": true
+      },
+      "obj": {
+        "bytes": 17959786,
+        "watertight_after_import": true
+      },
+      "ply": {
+        "bytes": 8606181,
+        "watertight_after_import": true
+      }
+    }
+  }
+]

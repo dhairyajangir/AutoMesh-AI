@@ -1,0 +1,99 @@
+{
+  "id": "b19861486ec64d899632dc3980943abd",
+  "project_id": "e73e76a714b941e3b601fc6856a0e5f7",
+  "kind": "reconstruct",
+  "state": "completed",
+  "stage": "Complete",
+  "created": "2026-09-16T06:27:41.343525+00:00",
+  "updated": "2026-09-16T06:28:25.899816+00:00",
+  "error": null,
+  "result": {
+    "stats": {
+      "vertices": 100096,
+      "faces": 200188,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "dimensions": {
+        "length": 3.1789774894714355,
+        "height": 0.9999999998385708,
+        "width": 1.4942392706871033
+      },
+      "bounds": [
+        [
+          -1.5894887447357178,
+          1.6142924497142275e-10,
+          -0.7405080199241638
+        ],
+        [
+          1.5894887447357178,
+          1.0,
+          0.7537312507629395
+        ]
+      ],
+      "volume": 3.017540263997306,
+      "unit": "relative",
+      "grid": [
+        256,
+        75,
+        114
+      ],
+      "resolution": 256,
+      "source_views": [
+        "front",
+        "side",
+        "top"
+      ],
+      "projection_iou": {
+        "side": 0.9792,
+        "front": 1.0,
+        "top": 0.9996
+      },
+      "warnings": [
+        "Silhouettes constrain the exterior only; hidden recesses and internal geometry are unknown.",
+        "Relative scale. Set one known dimension before using physical measurements."
+      ],
+      "method": "orthographic_visual_hull",
+      "axes": "X forward, Y up, Z vehicle right",
+      "physical_accuracy": "Not measured; silhouette agreement is not geometric accuracy."
+    },
+    "artifacts": {
+      "glb": "e320a6b6a61f4910944bb6bb53d281f9",
+      "stl": "8d41d1ae54d94e53ae63786e7ea5c53a",
+      "obj": "9523b6678ce34725a7541305e80a7346",
+      "ply": "5ea587f0aa574864aa09e7fbae7e38e9",
+      "report": "84f3ae7ce67241c18fde6ab119b533eb"
+    },
+    "projections": {
+      "side": "d7acda57c77f4a8886e0cec7f973e95b",
+      "front": "06fcae320579446a95dc488ac6b90102",
+      "top": "5dc69d095b3844569ff68d6bdc9605f8"
+    },
+    "cached": false,
+    "settings": {
+      "resolution": 256,
+      "smoothing": false,
+      "known_axis": "length",
+      "known_dimension": null,
+      "unit": "m"
+    },
+    "revision": 9,
+    "elapsed_seconds": 42.6465,
+    "timings": {
+      "Starting": 0.2816,
+      "Checking cached result": 1.3495,
+      "Reading reviewed masks": 2.5809,
+      "Aligning silhouettes": 0.0866,
+      "Intersecting silhouettes": 0.0576,
+      "Extracting surface": 11.008,
+      "Checking geometry": 6.1544,
+      "Writing mesh files": 0.5363,
+      "Exporting GLB": 3.8625,
+      "Exporting STL": 2.7111,
+      "Exporting OBJ": 8.691,
+      "Exporting PLY": 3.9018,
+      "Saving reconstruction report": 2.5744
+    }
+  },
+  "revision": 9
+}

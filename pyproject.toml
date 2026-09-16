@@ -1,0 +1,30 @@
+[project]
+name = "automesh-studio"
+version = "1.0.0"
+description = "Local silhouette-based vehicle reconstruction studio"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "python-multipart>=0.0.20,<1",
+  "numpy>=2,<3",
+  "opencv-python-headless>=4.11,<5",
+  "pillow>=11,<13",
+  "scipy>=1.15,<2",
+  "scikit-image>=0.25,<1",
+  "trimesh>=4.6,<5",
+  "rembg[cpu]>=2.0.67,<3",
+  "httpx>=0.28,<1",
+  "msvc-runtime>=14.42 ; sys_platform == 'win32'",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "pip-audit>=2.9,<3"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"

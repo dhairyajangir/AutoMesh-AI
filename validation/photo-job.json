@@ -1,0 +1,98 @@
+{
+  "id": "88dd47732ba44039bb14f6c85d69feef",
+  "project_id": "8d56a565c0d644c7a38a6f0c5bb766fe",
+  "kind": "reconstruct",
+  "state": "completed",
+  "stage": "Complete",
+  "created": "2026-09-16T06:47:35.843385+00:00",
+  "updated": "2026-09-16T06:47:45.333296+00:00",
+  "error": null,
+  "result": {
+    "stats": {
+      "vertices": 46774,
+      "faces": 93576,
+      "watertight": true,
+      "winding_consistent": true,
+      "components": 1,
+      "dimensions": {
+        "length": 2.1875940561294556,
+        "height": 1.0000000000321145,
+        "width": 1.3057255744934082
+      },
+      "bounds": [
+        [
+          -1.0851844549179077,
+          -3.2114571418828675e-11,
+          -0.6614530682563782
+        ],
+        [
+          1.1024096012115479,
+          1.0,
+          0.64427250623703
+        ]
+      ],
+      "volume": 1.4311189823678916,
+      "unit": "relative",
+      "grid": [
+        128,
+        58,
+        77
+      ],
+      "resolution": 128,
+      "source_views": [
+        "front",
+        "side"
+      ],
+      "projection_iou": {
+        "side": 1.0,
+        "front": 1.0
+      },
+      "warnings": [
+        "Photographs are treated as orthographic views. Perspective and lens distortion are not calibrated.",
+        "Silhouettes constrain the exterior only; hidden recesses and internal geometry are unknown.",
+        "Top profile unconstrained; width may be overestimated.",
+        "Relative scale. Set one known dimension before using physical measurements."
+      ],
+      "method": "orthographic_visual_hull",
+      "axes": "X forward, Y up, Z vehicle right",
+      "physical_accuracy": "Not measured; silhouette agreement is not geometric accuracy."
+    },
+    "artifacts": {
+      "glb": "fd20f98559c7426da2ae94a2f6ab8d9b",
+      "stl": "5f167858471b4e4aa285a016c2648284",
+      "obj": "df0c15dda317452995cf618fffe9224c",
+      "ply": "ad3bf5e1584642f8ad2585735e089cf3",
+      "report": "b9508221ffd548eb914d2a243e79b2d9"
+    },
+    "projections": {
+      "side": "c554ce60a8704aef89d6bc8294cc5fb8",
+      "front": "68986f78f9a743d9806cd5c44e04fcd0"
+    },
+    "cached": false,
+    "settings": {
+      "resolution": 128,
+      "smoothing": false,
+      "known_axis": "length",
+      "known_dimension": null,
+      "unit": "m"
+    },
+    "revision": 6,
+    "elapsed_seconds": 9.0953,
+    "timings": {
+      "Starting": 0.0815,
+      "Checking cached result": 0.769,
+      "Reading reviewed masks": 0.5153,
+      "Aligning silhouettes": 0.1776,
+      "Intersecting silhouettes": 0.0388,
+      "Extracting surface": 2.1259,
+      "Checking geometry": 1.0967,
+      "Writing mesh files": 0.0648,
+      "Exporting GLB": 0.4595,
+      "Exporting STL": 0.816,
+      "Exporting OBJ": 2.4236,
+      "Exporting PLY": 0.4911,
+      "Saving reconstruction report": 0.1647
+    }
+  },
+  "revision": 6
+}
